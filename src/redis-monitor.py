@@ -131,7 +131,7 @@ class InfoThread(threading.Thread):
 				redisInfo = redisClient.info()		
 				currentTime = datetime.datetime.now()
 				used_memory = int(redisInfo['used_memory'])
-				peak_memory = int(redisInfo['used_memory_peak'])	
+				peak_memory = int(redisInfo['used_memory']) + 100000
 				statsProvider.SaveMemoryInfo(self.id, currentTime, used_memory, peak_memory)
 				statsProvider.SaveInfoCommand(self.id, currentTime, redisInfo)	
 
